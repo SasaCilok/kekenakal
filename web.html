@@ -85,16 +85,10 @@
     function openWithQField() {
       // Membuka QField melalui protokol URI
       const qfieldUrl = "qfield://";
-      
-      // Coba buka aplikasi QField
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      iframe.src = qfieldUrl;
-      document.body.appendChild(iframe);
+      window.location.href = qfieldUrl;
 
-      // Jika aplikasi tidak ada, arahkan ke halaman unduh setelah 2 detik
+      // Jika aplikasi tidak tersedia, arahkan ke Play Store setelah 2 detik
       setTimeout(() => {
-        document.body.removeChild(iframe);
         if (!document.hidden) {
           alert("QField tidak terdeteksi. Mengarahkan ke Play Store untuk mengunduh aplikasi.");
           downloadQField();
